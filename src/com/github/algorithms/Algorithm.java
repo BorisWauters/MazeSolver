@@ -14,7 +14,7 @@ public abstract class Algorithm {
         this.nodes = createHelpers(maze);
     }
 
-    protected abstract void solve();
+    public abstract void solve();
 
     protected Set<GraphHelperNode> getNodes() {
         return nodes;

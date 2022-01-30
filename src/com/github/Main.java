@@ -1,5 +1,7 @@
 package com.github;
 
+import com.github.algorithms.Algorithm;
+import com.github.algorithms.dfs.DepthFirstSearch;
 import com.github.algorithms.dijkstra.Dijkstra;
 import com.github.maze.Maze;
 import com.github.maze.Node;
@@ -25,9 +27,16 @@ public class Main {
         Tile[][] tiles = MazeUtil.transformToTileMaze(colors);
         Maze maze = MazeUtil.transformToMaze(tiles);
 
-        Dijkstra dijkstra = new Dijkstra(maze);
-        dijkstra.solve();
-        List<Node> path = dijkstra.getPath();
+        long start = System.currentTimeMillis();
+
+        Algorithm algorithm = new Dijkstra(maze);
+        //Algorithm algorithm = new DepthFirstSearch(maze);
+        algorithm.solve();
+        List<Node> path = algorithm.getPath();
+
+        long end = System.currentTimeMillis();
+        long time = end - start;
+        System.out.println("Solution found in " + time + "ms");
 
         TileUtil.addPathToTileMaze(path, tiles);
         colors = TileUtil.transformToColors(tiles);

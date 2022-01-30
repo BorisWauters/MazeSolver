@@ -19,12 +19,11 @@ The output is similar to the input maze with the exception that the path is now 
 
 ## Solver
 
-To solve the maze, I used Dijkstra's algorithm.
+Currently, there are two available algorithms to solve the maze, Dijkstra and DFS.
 
 ### Possible future expansions
 
 Implement some more solving algorithms:
 * A*
 * Bellman Ford
-* DFS
 * BFS
