@@ -23,7 +23,7 @@ public class BreadthFirstSearch extends Algorithm {
 
         while (!queue.isEmpty()) {
             var node = queue.poll();
-            if (node.getNode().isEnd()) return;
+            if (node.isEnd()) return;
 
             for (var neighbour : node.getNeighbours()) {
                 if (visitedNodes.contains(neighbour)) continue;

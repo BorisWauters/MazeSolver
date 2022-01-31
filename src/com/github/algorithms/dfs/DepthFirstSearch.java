@@ -23,7 +23,7 @@ public class DepthFirstSearch extends Algorithm {
 
         while (!stack.isEmpty()) {
             var node = stack.pop();
-            if (node.getNode().isEnd()) return;
+            if (node.isEnd()) return;
 
             for (var neighbour : node.getNeighbours()) {
                 if (visitedNodes.contains(neighbour)) continue;

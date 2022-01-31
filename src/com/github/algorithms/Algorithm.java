@@ -22,23 +22,29 @@ public abstract class Algorithm {
 
     public GraphHelperNode getStartNode() {
         for (var node : nodes) {
-            if (node.getNode().isStart()) return node;
+            if (node.isStart()) return node;
         }
         return null;
     }
 
     public GraphHelperNode getEndNode() {
         for (var node : nodes) {
-            if (node.getNode().isEnd()) return node;
+            if (node.isEnd()) return node;
         }
         return null;
     }
 
     public List<Node> getPath() {
         Deque<GraphHelperNode> path = new LinkedList<>();
-        path.addFirst(getEndNode());
+        var endNode = getEndNode();
+        path.addFirst(endNode);
 
-        while (!path.getFirst().getNode().isStart()) {
+        if (endNode.getPreviousNode() == null) {
+            System.err.println("Error: end not reached");
+            return List.of();
+        }
+
+        while (!path.getFirst().isStart()) {
             path.addFirst(path.getFirst().getPreviousNode());
         }
         return path.stream().map(GraphHelperNode::getNode).collect(Collectors.toList());

@@ -23,6 +23,14 @@ public class GraphHelperNode implements Comparable<GraphHelperNode> {
         return Integer.compare(this.getShortestPathLength(), o.getShortestPathLength());
     }
 
+    public boolean isStart() {
+        return this.node.isStart();
+    }
+
+    public boolean isEnd() {
+        return this.node.isEnd();
+    }
+
     public Node getNode() {
         return node;
     }

@@ -1,12 +1,10 @@
 package com.github.algorithms.dijkstra;
 
-import com.github.maze.Maze;
 import com.github.algorithms.Algorithm;
 import com.github.algorithms.GraphHelperNode;
+import com.github.maze.Maze;
 
-import java.util.HashSet;
 import java.util.PriorityQueue;
-import java.util.Set;
 
 public class Dijkstra extends Algorithm {
 
@@ -17,17 +15,14 @@ public class Dijkstra extends Algorithm {
     @Override
     public void solve() {
         PriorityQueue<GraphHelperNode> queue = new PriorityQueue<>(getNodes().size());
-        Set<GraphHelperNode> vertices = new HashSet<>(getNodes());
-
         GraphHelperNode startNode = getStartNode();
         startNode.setShortestPathLength(0);
         queue.add(startNode);
 
-        while (!vertices.isEmpty()) {
+        while (!queue.isEmpty()) {
             var currentNode = queue.poll();
-            vertices.remove(currentNode);
 
-            if (currentNode.getNode().isEnd()) {
+            if (currentNode.isEnd()) {
                 System.out.println("End reached with path length " + currentNode.getShortestPathLength());
                 return;
             }
@@ -42,5 +37,7 @@ public class Dijkstra extends Algorithm {
                 }
             }
         }
+
+        System.out.println("End was not reached");
     }
 }

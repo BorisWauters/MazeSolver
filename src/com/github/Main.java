@@ -15,8 +15,13 @@ import java.util.List;
 
 public class Main {
 
-    private static String fileName = "maze-6.png";
+    private static String fileName = "maze-3.png";
 
+    /*todo
+     * - Add error handling
+     * - Add A* and Bellman-Ford algorithms
+     * - Add more args so the program can be run via command line
+     * */
     public static void main(String[] args) {
         if (args.length > 0) {
             fileName = args[0];
