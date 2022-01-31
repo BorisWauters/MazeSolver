@@ -14,11 +14,11 @@ public abstract class Algorithm {
         this.nodes = createHelpers(maze);
     }
 
-    public abstract void solve();
-
     protected Set<GraphHelperNode> getNodes() {
         return nodes;
     }
+
+    public abstract void solve();
 
     public GraphHelperNode getStartNode() {
         for (var node : nodes) {
@@ -45,15 +45,15 @@ public abstract class Algorithm {
     }
 
     private Set<GraphHelperNode> createHelpers(Maze maze) {
-        Map<Node, GraphHelperNode> nodes = new HashMap<>();
+        Map<Node, GraphHelperNode> nodeMap = new HashMap<>();
         for (var node : maze.getNodes()) {
-            nodes.put(node, new GraphHelperNode(node));
+            nodeMap.put(node, new GraphHelperNode(node));
         }
-        for (var node : nodes.keySet()) {
-            var dijkstraHelperNode = nodes.get(node);
-            var nodeNeighbors = node.getNeighbors();
-            dijkstraHelperNode.setNeighbours(nodeNeighbors.stream().map(nodes::get).collect(Collectors.toSet()));
+        for (var nodeEntry : nodeMap.entrySet()) {
+            var graphHelperNode = nodeEntry.getValue();
+            var nodeNeighbors = nodeEntry.getKey().getNeighbors();
+            graphHelperNode.setNeighbours(nodeNeighbors.stream().map(nodeMap::get).collect(Collectors.toSet()));
         }
-        return new HashSet<>(nodes.values());
+        return new HashSet<>(nodeMap.values());
     }
 }
