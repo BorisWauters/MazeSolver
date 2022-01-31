@@ -1,8 +1,6 @@
 package com.github;
 
 import com.github.algorithms.Algorithm;
-import com.github.algorithms.bfs.BreadthFirstSearch;
-import com.github.algorithms.dfs.DepthFirstSearch;
 import com.github.algorithms.dijkstra.Dijkstra;
 import com.github.maze.Maze;
 import com.github.maze.Node;

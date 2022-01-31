@@ -4,22 +4,22 @@ import com.github.algorithms.Algorithm;
 import com.github.algorithms.GraphHelperNode;
 import com.github.maze.Maze;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DepthFirstSearch extends Algorithm {
 
-    private final Set<GraphHelperNode> visitedNodes;
-
     public DepthFirstSearch(Maze maze) {
         super(maze);
-        this.visitedNodes = new HashSet<>();
     }
 
     @Override
     public void solve() {
         Deque<GraphHelperNode> stack = new ArrayDeque<>();
-        GraphHelperNode startNode = getStartNode();
-        stack.push(startNode);
+        Set<GraphHelperNode> visitedNodes = new HashSet<>();
+        stack.push(getStartNode());
 
         while (!stack.isEmpty()) {
             var node = stack.pop();

@@ -60,17 +60,17 @@ public class MazeUtil {
         int width = nodes.length;
         int height = nodes[0].length;
 
-        if (x != 0 && nodes[x-1][y] != null) {
-            node.getNeighbors().add(nodes[x-1][y]);
+        if (x != 0 && nodes[x - 1][y] != null) {
+            node.getNeighbors().add(nodes[x - 1][y]);
         }
-        if (y != 0 && nodes[x][y-1] != null) {
-            node.getNeighbors().add(nodes[x][y-1]);
+        if (y != 0 && nodes[x][y - 1] != null) {
+            node.getNeighbors().add(nodes[x][y - 1]);
         }
-        if (x < width-1 && nodes[x+1][y] != null) {
-            node.getNeighbors().add(nodes[x+1][y]);
+        if (x < width - 1 && nodes[x + 1][y] != null) {
+            node.getNeighbors().add(nodes[x + 1][y]);
         }
-        if (y < height-1 && nodes[x][y+1] != null) {
-            node.getNeighbors().add(nodes[x][y+1]);
+        if (y < height - 1 && nodes[x][y + 1] != null) {
+            node.getNeighbors().add(nodes[x][y + 1]);
         }
     }
 }

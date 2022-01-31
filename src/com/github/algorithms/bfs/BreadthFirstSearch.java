@@ -4,21 +4,22 @@ import com.github.algorithms.Algorithm;
 import com.github.algorithms.GraphHelperNode;
 import com.github.maze.Maze;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.Set;
 
 public class BreadthFirstSearch extends Algorithm {
-    private final Set<GraphHelperNode> visitedNodes;
 
     public BreadthFirstSearch(Maze maze) {
         super(maze);
-        this.visitedNodes = new HashSet<>();
     }
 
     @Override
     public void solve() {
         Queue<GraphHelperNode> queue = new ArrayDeque<>();
-        GraphHelperNode startNode = getStartNode();
-        queue.add(startNode);
+        Set<GraphHelperNode> visitedNodes = new HashSet<>();
+        queue.add(getStartNode());
 
         while (!queue.isEmpty()) {
             var node = queue.poll();
