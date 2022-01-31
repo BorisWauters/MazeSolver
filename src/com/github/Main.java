@@ -1,6 +1,7 @@
 package com.github;
 
 import com.github.algorithms.Algorithm;
+import com.github.algorithms.bfs.BreadthFirstSearch;
 import com.github.algorithms.dfs.DepthFirstSearch;
 import com.github.algorithms.dijkstra.Dijkstra;
 import com.github.maze.Maze;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class Main {
 
-    private static String fileName = "maze-3.png";
+    private static String fileName = "maze-6.png";
 
     public static void main(String[] args) {
         if (args.length > 0) {
@@ -31,6 +32,7 @@ public class Main {
 
         Algorithm algorithm = new Dijkstra(maze);
         //Algorithm algorithm = new DepthFirstSearch(maze);
+        //Algorithm algorithm = new BreadthFirstSearch(maze);
         algorithm.solve();
         List<Node> path = algorithm.getPath();
 

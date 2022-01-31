@@ -19,11 +19,10 @@ The output is similar to the input maze with the exception that the path is now 
 
 ## Solver
 
-Currently, there are two available algorithms to solve the maze, Dijkstra and DFS.
+Currently, there are two available algorithms to solve the maze, Dijkstra, DFS and BFS.
 
 ### Possible future expansions
 
 Implement some more solving algorithms:
 * A*
 * Bellman Ford
-* BFS

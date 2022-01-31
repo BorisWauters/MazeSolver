@@ -28,8 +28,8 @@ public class TileUtil {
 
         Color[][] colors = new Color[width][height];
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 colors[i][j] = tileMaze[i][j].transformToColor();
             }
         }

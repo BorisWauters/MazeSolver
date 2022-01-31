@@ -20,8 +20,8 @@ public class MazeUtil {
 
         Tile[][] tiles = new Tile[width][height];
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 tiles[i][j] = Tile.transformToTile(color[i][j]);
             }
         }
@@ -34,8 +34,8 @@ public class MazeUtil {
         Node[][] nodes = new Node[width][height];
         Set<Node> connectedNodes = new HashSet<>();
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 Tile tile = tiles[i][j];
                 if (tile != Tile.WALL) {
                     nodes[i][j] = new Node(i, j, tile == Tile.START, tile == Tile.END);
@@ -43,8 +43,8 @@ public class MazeUtil {
             }
         }
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 if (nodes[i][j] != null) {
                     addNeighbours(nodes[i][j], nodes);
                     connectedNodes.add(nodes[i][j]);
